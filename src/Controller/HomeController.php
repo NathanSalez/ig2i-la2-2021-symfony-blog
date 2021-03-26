@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Article;
+use App\Entity\ArticleV1;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +14,7 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $article1 = new Article();
+        $article1 = new ArticleV1();
         $article1->setTitle('Title 1');
         $article1->setSubtitle('SubTitle 1');
         $article1->setCreatedAt(new \DateTime());
@@ -22,7 +22,7 @@ class HomeController extends AbstractController
         $article1->setBody('Lorem ipsum dolor sit amet');
         $article1->setImage('img/post-bg.jpg');
 
-        $article2 = new Article();
+        $article2 = new ArticleV1();
         $article2->setTitle('Title 2');
         $article2->setSubtitle('SubTitle 2');
         $article2->setCreatedAt(new \DateTime());

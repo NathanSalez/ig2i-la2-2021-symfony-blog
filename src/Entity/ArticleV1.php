@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 
-class Article
+class ArticleV1
 {
     private string $title;
     private string $subtitle;
