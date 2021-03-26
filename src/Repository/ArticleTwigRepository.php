@@ -47,4 +47,14 @@ class ArticleTwigRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLast($count) {
+        return $this->createQueryBuilder('article')
+            ->orderBy('article.createdAt','desc')
+            ->setMaxResults($count)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
 }
