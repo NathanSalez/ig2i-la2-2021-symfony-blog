@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Comment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Faker\Factory;
 use Faker\Provider\Lorem;
@@ -29,6 +30,16 @@ class AppFixtures extends Fixture
                 Base::numberBetween(400,800)
             ));
             $manager->persist($article);
+            for ($j = 0; $j < rand(0, 10); $j++) {
+                $comment = new Comment();
+                $comment
+                    ->setCreatedAt(new \DateTime())
+                    ->setArticle($article)
+                    ->setComment($faker->paragraphs(2, true))
+                    ->setName($faker->name)
+                    ->setEmail( $faker->email);
+                $manager->persist($comment);
+            }
         }
         $manager->flush();
     }
